@@ -1,0 +1,15 @@
+1
+13
+ChatPage.qml
+WatashiPage.qml
+ChatMessageList.qml
+TitleLabelItem.qml
+ChatMessageItem.qml
+ChatInputTextArea.qml
+tinder-data-raw.json
+tinder-data.json
+Main.qml
+NetworkActivity.qml
+FacebookLoginWebView.qml
+MatchInfoPage.qml
+MatchListItem.qml
