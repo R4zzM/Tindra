@@ -36,5 +36,8 @@ Container {
       //   textInput.text = ""
       // }
     }
-  }
+        maximumLength: 100
+        autoSize.maxLineCount: 7
+        scrollMode: TextAreaScrollMode.Default
+    }
 }

@@ -56,6 +56,7 @@ public:
     Q_INVOKABLE void setFacebookAuthToken(QVariant token);
     Q_INVOKABLE int secondsSinceOnline(QString iso8601LastOnline);
     Q_INVOKABLE QString formattedLastOnlineText(QString iso8601Date);
+    Q_INVOKABLE QString prettifyTimestamp(QString iso8601Date);
 
     // Version information.
     Q_INVOKABLE QString getMyActiveTextVersion();

@@ -2,7 +2,7 @@ import bb.cascades 1.4
 
 Container {
 
-property alias refreshIndicator: refreshIndicator
+  property alias refreshIndicator: refreshIndicator
 
   layout: StackLayout {
     orientation: LayoutOrientation.TopToBottom
@@ -14,8 +14,26 @@ property alias refreshIndicator: refreshIndicator
     onCreationCompleted: {
 
     }
-
+    
     ListView {
+
+      function getSenderName(id) {
+          var name
+          if(id === tinderDataModel.preparedMatch.person._id)
+              name =  tinderDataModel.preparedMatch.person.name    
+          else
+              name = "Jag"
+          
+          return name
+      }
+      
+      function isIncoming(id) {
+          return (id === tinderDataModel.preparedMatch.person._id)? true : false
+      }
+      
+      function prettifyTimeStamp(iso8601Timestamp) {
+          return tinderDataModel.prettifyTimestamp(iso8601Timestamp)
+      }
 
       property string herName: tinderDataModel.preparedMatch.person.name
       property string herId: tinderDataModel.preparedMatch.person._id
@@ -51,9 +69,12 @@ property alias refreshIndicator: refreshIndicator
                 return "Moi: " + ListItemData.message;
               }
             }
-
-            message: nameAndMessage()
-            // message: ListItemData.message
+            
+            sender: ListItem.view.getSenderName(ListItem.data.from)
+            incoming: ListItem.view.isIncoming(ListItem.data.from)
+            timestamp: ListItem.view.prettifyTimeStamp(ListItemData.sent_date)
+            // message: nameAndMessage()
+            message: ListItemData.message
           }
         }
       ]

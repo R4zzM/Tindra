@@ -393,3 +393,9 @@ QString TinderDataModel::formattedLastOnlineText(QString iso8601Date)
     else
         return QString("Loggade in precis nu!!!");
 }
+
+QString TinderDataModel::prettifyTimestamp(QString iso8601Timestamp)
+{
+    QDateTime dateTime = QDateTime::fromString(iso8601Timestamp, Qt::ISODate).toLocalTime();
+    return dateTime.toString(Qt::SystemLocaleShortDate);
+}
